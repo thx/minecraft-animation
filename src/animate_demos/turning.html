@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Turning</title>
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/highlightjs/styles/github.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/mm.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/browser.css" rel="stylesheet">
+  <link href="../../dist/css/base.css" rel="stylesheet">
+  <link href="../../dist/css/animate.css" rel="stylesheet">
+  <script src="http://g.tbcdn.cn/thx/brix-release/0.0.22/require+config.js"></script>
+</head>
+<body>
+<div class="desc">
+  <div class="animate-class">
+    <!-- <h4>移动缓动型Tabs：</h4> -->
+    <h5><strong>动画样式名</strong></h5>
+    <ul>
+      <li>小圆点class：<code>.bx-trans-turning</code></li>
+      <li>&nbsp;</li>
+      <li>触发翻页时小圆点加上动画class：</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;- 向右前进拖尾动画：<code>.bx-anim-turning-tail-forward</code></li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;- 向左后退拖尾动画：<code>.bx-anim-turning-tail-backward</code></li>
+    </ul>
+    <h5><strong>注意事项</strong></h5>
+    <ul>
+      <li>在组件中算出并设置小圆点的<code>left</code>值，</li>
+      <li>组件需要算出是<code>向右前进拖尾</code>动画还是<code>向左后退拖尾</code>动画，以决定加哪个class</li>
+      <li>拖尾动画完毕需要移除样式，通过监听<code>animationend</code>来实现</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================================ -->
+<style>
+  /*可以重设圆点动画的颜色*/
+ /* .bx-anim-turning-x {
+    background-color: green;
+  }
+  .bx-anim-turning-x:after {
+    background-color: green;
+  }
+  .slide-pannels i:hover {
+    background-color: green;
+  }*/
+
+  /*圆点可以在任意位置*/
+/*  .bx-anim-turning {
+    left: 28px;
+  }*/
+
+</style>
+<div class="animate-content clearfix">
+  <div class="slide-show">
+    <span class="arr-left"><</span>
+    <div class="ct"></div>
+    <span class="arr-right">></span>
+    <div class="slide-pannels">
+      <span class="bx-anim-turning" data-index="0"></span>
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+    </div>
+  </div>
+</div>
+
+<script>
+  require(['jquery'], function($) {
+    //点击左右翻页按钮
+    $('.arr-right,.arr-left').on('click', function(e) {
+      var el = $(e.target)
+      var lastIndex = parseInt($('.bx-anim-turning').attr('data-index'), 10)
+      var index = el.hasClass('arr-right') ? (lastIndex + 1) : (lastIndex - 1)
+
+      //边界检查
+      var len = $('.slide-pannels i').length - 1
+      if (el.hasClass('arr-right')) {
+        if (index > len) {
+          return
+        }
+      } else {
+        if (index < 0) {
+          return
+        }
+      }
+
+      turningTo(index, lastIndex)
+      $('.bx-anim-turning').attr('data-index', index)
+    })
+
+    //点击triggers
+    $('.slide-pannels i').on('click', function(e) {
+      var el = $(e.target)
+      var index = el.index() - 1
+      var lastIndex = parseInt($('.bx-anim-turning').attr('data-index'), 10)
+
+      turningTo(index, lastIndex)
+      $('.bx-anim-turning').attr('data-index', index)
+    })
+
+    //需要在动画结束时移除class
+    $('.bx-anim-turning').on('animationend', function(e) {
+      $(e.target).removeClass('bx-anim-turning-tail-forward')
+      $(e.target).removeClass('bx-anim-turning-tail-backward')
+    })
+
+    // 跳转到指定的trigger
+    function turningTo(index, lastIndex) {
+      var cur = $('.slide-pannels i').eq(index)
+      var turningClass = index > lastIndex ? 'bx-anim-turning-tail-forward' : 'bx-anim-turning-tail-backward'
+
+      $('.bx-anim-turning').addClass(turningClass)
+      $('.bx-anim-turning').css({
+        left: cur.position().left
+      })
+    }
+
+  })
+</script>
+</body>
+</html>

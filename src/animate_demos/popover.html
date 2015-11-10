@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Popover</title>
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/highlightjs/styles/github.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/mm.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/browser.css" rel="stylesheet">
+  <link href="../../dist/css/base.css" rel="stylesheet">
+  <link href="../../dist/css/animate.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../less/base.css"> -->
+  <!-- <link rel="stylesheet" href="../less/animate.css"> -->
+  <script src="http://g.tbcdn.cn/thx/brix-release/0.0.22/require+config.js"></script>
+</head>
+<body>
+<div class="desc">
+  <p class="author">[ author by 虞佳 ]</p>
+  <div class="animate-class">
+    <h5><strong>动画初始化样式名</strong></h5>
+    <ul>
+      <li>左下放大：<code>.bx-trans-zoom-left-bottom</code></li>
+      <li>左上放大：<code>.bx-trans-zoom-left-top</code></li>
+      <li>右上放大：<code>.bx-trans-zoom-right-top</code></li>
+      <li>右下放大：<code>.bx-trans-zoom-right-bottom</code></li>
+    </ul>
+    <h5><strong>注意点</strong></h5>
+    <ul>
+      <li>通过<code>toggleClass('bx-trans-zoom')</code>控制显示隐藏</li>
+      <li>transition属性不支持display，所以不要用display:none隐藏，用opacity:0代替</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="animate-content clearfix popover-example">
+  <div class="popover-wrap mr40 fl">
+
+    <a href="javascript:;" class="btn pop-btn">左下</a>
+    <div class="popover-inner bx-trans-zoom-left-bottom" style="top: 40px; left: 0;">
+      <div class="mb10"><input type="text" placeholder="input here" class="form-control" ></div>
+      <div><a href="javascript:;" class="btn btn-brand">左下</a></div>
+    </div>
+  </div>
+
+  <div class="popover-wrap mr40 fl">
+    <a href="javascript:;" class="btn pop-btn">右上</a>
+    <div class="popover-inner bx-trans-zoom-right-top" style="top: -104px; left: -50px;">
+      <div>some text</div>
+      <div>some text</div>
+      <div>some text</div>
+    </div>
+  </div>
+
+  <div class="popover-wrap mr40 fl">
+    <a href="javascript:;" class="btn pop-btn">右下</a>
+    <div class="popover-inner bx-trans-zoom-right-bottom" style="top: 40px; left: -50px;">
+      <div>some text</div>
+      <div>some text</div>
+      <div>some text</div>
+    </div>
+  </div>
+
+  <div class="popover-wrap mr40 fl">
+    <a href="javascript:;" class="btn pop-btn">左上</a>
+    <div class="popover-inner bx-trans-zoom-left-top " style="top: -104px; left: 0;">
+      <div>some text</div>
+      <div>some text</div>
+      <div>some text</div>
+    </div>
+  </div>
+</div>
+
+<div class="animate-content clearfix popover-example">
+  <h5>点击iconfont</h5>
+  <table bx-name="components/table" class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>资源位信息</th>
+        <th>所属计划</th>
+        <th>网站行业</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="popover-wrap">
+          <i class="brixfont pop-btn">&#xe61d;</i>
+          <div class="popover-inner bx-trans-zoom-left-bottom" style="top: 0; left: 0;">
+            <div><i class="brixfont">&#xe61d;</i>text</div>
+            <div><i class="brixfont">&#xe61d;</i>text</div>
+            <div><i class="brixfont">&#xe61d;</i>text</div>
+          </div>
+        </td>
+        <td>站内_PC_天猫首页焦点图</td>
+        <td>推广单元五一大促测试A</td>
+        <td>网上购物</td>
+      </tr>
+      <tr>
+        <td class="popover-wrap">
+          <i class="brixfont pop-btn">&#xe61d;</i>
+          <div class="popover-inner bx-trans-zoom-left-bottom" style="top: 0; left: 0;">
+            <div><i class="brixfont">&#xe61d;</i>text</div>
+            <div><i class="brixfont">&#xe61d;</i>text</div>
+            <div><i class="brixfont">&#xe61d;</i>text</div>
+          </div>
+        </td>
+        <td>站内_PC_天猫首页焦点图</td>
+        <td>推广单元五一大促测试A</td>
+        <td>网上购物</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  require(['jquery'], function($) {
+    $('.pop-btn').on('click', function(e) {
+      $(e.target).siblings('.popover-inner')
+        .toggleClass('bx-trans-zoom')
+    })
+
+    $(document).on('click', function(e) {
+      if (!$(e.target).closest('.popover-wrap').length) {
+        $('.popover-inner').removeClass('bx-trans-zoom');
+      }
+    })
+  })
+</script>
+</body>
+</html>

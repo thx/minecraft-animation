@@ -1,0 +1,196 @@
+/**
+ * 按钮边角收缩动画
+ */
+
+@keyframes btn-radius {.btn-radius-keyframes}
+@-webkit-keyframes btn-radius {.btn-radius-keyframes}
+@-moz-keyframes btn-radius {.btn-radius-keyframes}
+@-ms-keyframes btn-radius {.btn-radius-keyframes}
+@-o-keyframes btn-radius {.btn-radius-keyframes}
+
+.btn-radius-keyframes () {
+  0% {
+    border-radius: 4px;
+  }
+  100% {
+    border-radius: 8px;
+  }
+}
+.bx-anim-btn-radius{
+ .animation(btn-radius 0.3s ease-out, forwards);
+}
+
+/**
+ * 按钮边角收缩动画 - transition版
+ */
+
+.bx-trans-btn-radius {
+  transition: border-radius 0.2s ease-out;
+  &:hover {
+    border-radius: 8px;
+  }
+}
+
+/**
+ * 按钮字体抖动动画
+ */
+
+@keyframes btn-text {.btn-text-keyframes}
+@-webkit-keyframes btn-text {.btn-text-keyframes}
+@-moz-keyframes btn-text {.btn-text-keyframes}
+@-ms-keyframes btn-text {.btn-text-keyframes}
+@-o-keyframes btn-text {.btn-text-keyframes}
+
+.btn-text-keyframes () {
+  0% {
+    .transform(scale(1));
+  }
+  50% {
+    .transform(scale(0.9));
+  }
+  100% {
+    .transform(scale(1));
+  }
+}
+.bx-anim-btn-text {
+  .animation(btn-text 0.3s ease-out, forwards);
+}
+
+
+/**
+ * 按钮中间的loading点动画
+ */
+
+
+.bx-anim-btn-loading-common () {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background-color: white;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+@keyframes btn-loading-dots {.btn-loading-dots-keyframes}
+@-webkit-keyframes btn-loading-dots {.btn-loading-dots-keyframes}
+@-moz-keyframes btn-loading-dots {.btn-loading-dots-keyframes}
+@-ms-keyframes btn-loading-dots {.btn-loading-dots-keyframes}
+@-o-keyframes btn-loading-dots {.btn-loading-dots-keyframes}
+
+.btn-loading-dots-keyframes () {
+  0% {
+    .transform(translate(0, 0))
+  }
+  25% {
+    .transform(translate(0, 2px))
+  }
+  50% {
+    .transform(translate(0, 0))
+  }
+  75% {
+    .transform(translate(0, -2px))
+  }
+  100% {
+    .transform(translate(0, 0))
+  }
+}
+
+
+.bx-anim-btn-loading {
+  .bx-anim-btn-loading-common;
+  position: relative;
+  margin: 0 7px;
+  /*.animation(btn-loading-dots 0.6s linear infinite);*/
+
+  &:after {
+    content: '';
+    .bx-anim-btn-loading-common;
+    position: absolute;
+    left: -7px;
+    top: 0;
+    .animation(btn-loading-dots 0.6s linear 0s infinite);
+  }
+
+  &:before {
+    content: '';
+    .bx-anim-btn-loading-common;
+    position: absolute;
+    left: 7px;
+    top: 0;
+    .animation(btn-loading-dots 0.6s linear 0.3s infinite);
+  }
+}
+
+/**
+ * 按钮左右抖动
+ */
+
+@keyframes btn-shake {.btn-shake-keyframes}
+@-webkit-keyframes btn-shake {.btn-shake-keyframes}
+@-moz-keyframes btn-shake {.btn-shake-keyframes}
+@-ms-keyframes btn-shake {.btn-shake-keyframes}
+@-o-keyframes btn-shake {.btn-shake-keyframes}
+
+.btn-shake-keyframes () {
+  0% {
+    .transform(translate(0, 0))
+  }
+  10% {
+    .transform(translate(-7px, 0))
+  }
+  30% {
+    .transform(translate(7px, 0))
+  }
+  50% {
+    .transform(translate(-7px, 0))
+  }
+  70% {
+    .transform(translate(7px, 0))
+  }
+  90% {
+    .transform(translate(-7px, 0))
+  }
+  100% {
+    .transform(translate(0, 0))
+  }
+}
+
+.bx-anim-btn-shake {
+  .animation(btn-shake 0.4s linear);
+}
+
+/**
+ * 按钮上的loading条
+ */
+
+@keyframes btn-loading-bar {.btn-loading-bar-keyframes}
+@-webkit-keyframes btn-loading-bar {.btn-loading-bar-keyframes}
+@-moz-keyframes btn-loading-bar {.btn-loading-bar-keyframes}
+@-ms-keyframes btn-loading-bar {.btn-loading-bar-keyframes}
+@-o-keyframes btn-loading-bar {.btn-loading-bar-keyframes}
+
+.btn-loading-bar-keyframes () {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.bx-anim-btn-loading-bar {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*border-radius: 8px;*/
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.06);
+    .animation(btn-loading-bar 1s linear);
+  }
+}

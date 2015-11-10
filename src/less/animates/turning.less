@@ -1,0 +1,78 @@
+/**
+ * 翻页器圆点动画
+ */
+
+/*向右前进拖尾动画*/
+@keyframes turning-forward {.turning-forward-keyframes}
+@-webkit-keyframes turning-forward {.turning-forward-keyframes}
+@-moz-keyframes turning-forward {.turning-forward-keyframes}
+@-ms-keyframes turning-forward {.turning-forward-keyframes}
+@-o-keyframes turning-forward {.turning-forward-keyframes}
+
+.turning-forward-keyframes () {
+  0% {
+    left: 0;
+    right: 0;
+  }
+  50% {
+    left: -18px;
+    right: 0;
+  }
+  100% {
+    left: 0;
+    right: 0;
+  }
+}
+
+/*向左后退拖尾动画*/
+@keyframes turning-backward {.turning-backward-keyframes}
+@-webkit-keyframes turning-backward {.turning-backward-keyframes}
+@-moz-keyframes turning-backward {.turning-backward-keyframes}
+@-ms-keyframes turning-backward {.turning-backward-keyframes}
+@-o-keyframes turning-backward {.turning-backward-keyframes}
+
+.turning-backward-keyframes () {
+  0% {
+    left: 0;
+    right: 0;
+  }
+  50% {
+    left: 0;
+    right: -18px;
+  }
+  100% {
+    left: 0;
+    right: 0;
+  }
+}
+
+.bx-anim-turning {
+  position: absolute;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FF6800;
+  transition: all 0.2s ease-in-out;
+}
+.bx-anim-turning-tail-forward,
+.bx-anim-turning-tail-backward {
+  &:after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    height: 75%;
+    border-radius: 50%;
+    background-color: #FF6800;
+  }
+}
+.bx-anim-turning-tail-forward {
+  &:after {
+    .animation(turning-forward 0.28s ease-in-out, forwards);
+  }
+}
+.bx-anim-turning-tail-backward {
+  &:after {
+    .animation(turning-backward 0.28s ease-in-out, forwards);
+  }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkbox</title>
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/highlightjs/styles/github.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/mm.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/browser.css" rel="stylesheet">
+  <link href="../../dist/css/base.css" rel="stylesheet">
+  <link href="../../dist/css/animate.css" rel="stylesheet">
+  <script src="http://g.tbcdn.cn/thx/brix-release/0.0.22/require+config.js"></script>
+</head>
+<body>
+<div class="desc">
+  <div class="animate-class">
+    <h5><strong>动画样式名</strong></h5>
+    <ul>
+      <li>多选 <code>.bx-anim-checkbox</code></li>
+      <li>单选 <code>.bx-anim-radio</code></li>
+    </ul>
+  </div>
+</div>
+
+<div class="animate-content clearfix">
+  <label for="cb1"><input type="checkbox" class="bx-anim-checkbox" name="checkbox" id="cb1"> 选项1</label>
+  <label for="cb2"><input type="checkbox" class="bx-anim-checkbox" name="checkbox" id="cb2"> 选项2</label>
+  <label for="cb3"><input type="checkbox" class="bx-anim-checkbox" name="checkbox" id="cb3"> 选项3</label>
+  <label for="cb4"><input type="checkbox" class="bx-anim-checkbox" name="checkbox" id="cb4"> 选项4</label>
+</div>
+
+<div class="animate-content clearfix">
+  <label for="rd1"><input type="radio" class="bx-anim-radio" name="radio" id="rd1"> 选项1</label>
+  <label for="rd2"><input type="radio" class="bx-anim-radio" name="radio" id="rd2"> 选项2</label>
+  <label for="rd3"><input type="radio" class="bx-anim-radio" name="radio" id="rd3"> 选项3</label>
+  <label for="rd4"><input type="radio" class="bx-anim-radio" name="radio" id="rd4"> 选项4</label>
+</div>
+
+<script>
+  require(['jquery'], function($) {
+    $('.form-control').on('click', function(e) {
+      //
+      $(e.target).next()
+      .show()
+      .removeClass('bx-anim-fade-out-up')
+      .removeClass('endhide')
+      .addClass('bx-anim-fade-in-down')
+    })
+
+    //
+    $('body').on('animationend', '.endhide', function(e) {
+      $(e.currentTarget).hide()
+      $(e.currentTarget).removeClass('endhide')
+    })
+
+    //
+    $(document).on('click', function(e) {
+      if (!$(e.target).closest('.dropdown-wrap').length) {
+        $('.dropdown')
+        .removeClass('bx-anim-fade-in-down')
+        .addClass('bx-anim-fade-out-up endhide')
+      }
+    })
+  })
+</script>
+</body>
+</html>

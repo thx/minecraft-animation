@@ -1,0 +1,23 @@
+{
+  "name": "minicraft-animation",
+  "description": "minicraft-animation",
+  "version": "0.0.1",
+  "homepage": "https://github.com/chongzhi/minicraft-animation",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "",
+    "magix-app-deploy": "",
+    "gulp": "^3.9.0",
+    "gulp-less": "",
+    "gulp-minify-css": "^0.3.13",
+    "gulp-rename": "^1.2.2",
+    "gulp-concat": ""
+  },
+  "peerDependencies": {},
+  "keywords": [
+    "minicraft-animation"
+  ]
+}

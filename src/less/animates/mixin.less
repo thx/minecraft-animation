@@ -1,0 +1,112 @@
+/**
+   css3注意点小计
+    - animation-fill-mode 动画结束停在最后一帧
+    - translate(-30%, 0) 百分比是相对于元素自己的宽高，margin-left:-30%; 是相对于父容器的宽高
+    - transition、animation动画不能设置display:none;
+    - :after, :before等伪元素目前不支持嵌套，未来会支持 [还有多重伪元素 div::before(3) { content: ”; }];
+      - :after.content 用法
+        { content: url(@imgsrc) }  - 加载指定资源图片
+        { content: attr(data-src) } - 读取当前节点上的自定义属性值
+        { content: content:"选项" counter(sectioncounter) "： ";
+          counter-increment: sectioncounter;
+        } - 自动计数器 【参考资料：http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/】
+
+    - box-sizing: [content-box | padding-box | border-box];
+      - 全局设置：
+        html {
+          box-sizing: border-box;
+        }
+        *, *:before, *:after {
+          box-sizing: inherit;
+        }
+        // 宽度包含了border以及padding，这在容器设置了100%百分比宽度时又设置了padding时很有用
+ */
+
+@duration: 0.2s;
+
+/**
+ * animation用到的iconfont
+ */
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1439300088_3415737.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1439300088_3415737.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1439300088_3415737.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1439300088_3415737.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1439300088_3415737.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+
+
+/**
+ * 多前缀css3基础样式
+ * @param  {[type]} @value [description]
+ * @return {[type]}        [description]
+ */
+
+.box-shadow(@value) {
+  box-shadow: @value;
+  -webkit-box-shadow: @value;
+  -moz-box-shadow: @value;
+  -ms-box-shadow: @value;
+  -o-box-shadow: @value;
+}
+
+.transform(@value) {
+  transform: @value;
+  -ms-transform: @value;
+  -moz-transform: @value;
+  -webkit-transform: @value;
+  -o-transform: @value;
+}
+
+.appearance(@value) {
+  appearance: @value;
+  -webkit-appearance: @value;
+  -moz-appearance: @value;
+  -o-appearance: @value;
+  -ms-appearance: @value;
+}
+
+.box-sizing(@value) {
+  box-sizing: @value;
+  -webkit-box-sizing: @value;
+  -moz-box-sizing: @value;
+  -ms-box-sizing: @value;
+  -o-box-sizing: @value;
+}
+
+.animation(@value, @mode: none) {
+  animation: @value;
+  -ms-animation: @value;
+  -moz-animation: @value;
+  -webkit-animation: @value;
+  -o-animation: @value;
+
+  /*
+  动画结束停在最后一帧
+   */
+  animation-fill-mode: @mode;
+  -moz-animation-fill-mode: @mode;
+  -ms-animation-fill-mode: @mode;
+  -webkit-animation-fill-mode: @mode;
+  -o-animation-fill-mode: @mode;
+}
+
+.transition(...){
+  transition: @arguments;
+  -moz-transition: @arguments;  /* Firefox 4 */
+  -webkit-transition: @arguments;/* Safari 和 Chrome */
+  -o-transition: @arguments;  /* Opera */
+}
+
+/*
+设置元素变化基点
+*/
+.transform-origin(@X, @Y){
+  transform-origin: @X @Y;
+  -ms-transform-origin: @X @Y;     /* IE 9 */
+  -webkit-transform-origin: @X @Y; /* Safari 和 Chrome */
+  -moz-transform-origin: @X @Y;   /* Firefox */
+  -o-transform-origin: @X @Y;   /* Opera */
+}

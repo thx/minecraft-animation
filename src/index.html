@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MineCraft - Animation</title>
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/highlightjs/styles/github.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/mm.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/browser.css" rel="stylesheet">
+  <link href="../dist/css/base.css" rel="stylesheet">
+  <script src="http://g.tbcdn.cn/thx/brix-release/0.0.22/require+config.js"></script>
+</head>
+<body>
+<div class="nav">
+  <a href="http://groups.alidemo.cn/thx/brix-animation/docs/index.html" class="">Brix-animation</a>
+  <a href="javascript:;" data-src="dropdown" class="">Dropdown</a>
+  <a href="javascript:;" data-src="dialog" class="">Dialog</a>
+  <a href="javascript:;" data-src="button" class="">Button</a>
+  <a href="javascript:;" data-src="input" class="">Input</a>
+  <a href="javascript:;" data-src="popover" class="">Popover</a>
+  <a href="javascript:;" data-src="tabs" class="">Tabs</a>
+  <a href="javascript:;" data-src="checkbox" class="">Checkbox</a>
+  <a href="javascript:;" data-src="steps" class="">Steps</a>
+  <a href="javascript:;" data-src="turning" class="">Turning</a>
+  <a href="javascript:;" data-src="suspension" class="">Suspension</a>
+  <a href="javascript:;" data-src="zoom" class="">Zoom</a>
+</div>
+<div style="padding: 10px 20px;" class="project-info">
+  <div style="margin-bottom:5px;">
+    <strong>项目地址：</strong>
+    <a href="http://gitlab.alibaba-inc.com/thx/minecraft-animation">http://gitlab.alibaba-inc.com/thx/minecraft-animation</a>
+  </div>
+  <div style="margin-bottom:5px;">
+    <strong>css生产环境地址：</strong>
+  </div>
+  <div>
+    开发版：<a href="http://g.assets.daily.taobao.net/thx/minecraft-animation/0.0.1/css/animate.css">http://g.assets.daily.taobao.net/thx/minecraft-animation/0.0.1/css/animate.css</a>
+  </div>
+
+  <div>
+    压缩版：<a href="http://g.assets.daily.taobao.net/thx/minecraft-animation/0.0.1/css/animate-min.css">http://g.assets.daily.taobao.net/thx/minecraft-animation/0.0.1/css/animate-min.css</a>
+  </div>
+</div>
+<iframe id="content" src="" frameborder="0"></iframe>
+<script>
+  require(['jquery'], function($) {
+
+    //页面根据hash自动路由至相应的页面，加载到iframe#content里
+    var index = 'dropdown'
+    var currentPage = location.hash.slice(1) || index
+
+    function getIframeSrc(path) {
+      return './animate_demos/' + path + '.html'
+    }
+
+    $('#content').attr('src', getIframeSrc(currentPage))
+    $('.nav a[data-src="'+ currentPage +'"]').addClass('on')
+
+    $('.nav a').on('click', function(e) {
+      var el = $(e.target)
+      var src = el.attr('data-src')
+
+      if (!src) {
+        return
+      }
+
+      $('#content').attr('src', getIframeSrc(src))
+      $('.nav a').removeClass('on')
+      el.addClass('on')
+      location.hash = src
+    })
+  })
+</script>
+</body>
+</html>

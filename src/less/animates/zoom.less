@@ -1,0 +1,51 @@
+/**
+* 进场缩放效果
+*/
+
+@keyframes zoom-in {.zoom-in-keyframes}
+@-webkit-keyframes zoom-in {.zoom-in-keyframes}
+@-moz-keyframes zoom-in {.zoom-in-keyframes}
+@-ms-keyframes zoom-in {.zoom-in-keyframes}
+@-o-keyframes zoom-in {.zoom-in-keyframes}
+
+.zoom-in-keyframes () {
+
+  0% {
+    .transform(scale(4));
+    opacity: 0;
+  }
+  100% {
+    .transform(scale(1));
+    opacity: 1;
+  }
+}
+
+.bx-anim-zoom-in {
+  .animation(zoom-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), forwards);
+}
+
+/**
+* 出场缩放效果
+*/
+
+@keyframes zoom-out {.zoom-out-keyframes}
+@-webkit-keyframes zoom-out {.zoom-out-keyframes}
+@-moz-keyframes zoom-out {.zoom-out-keyframes}
+@-ms-keyframes zoom-out {.zoom-out-keyframes}
+@-o-keyframes zoom-out {.zoom-out-keyframes}
+
+.zoom-out-keyframes () {
+
+  0% {
+    .transform(scale(1));
+    opacity: 1;
+  }
+  100% {
+    .transform(scale(4));
+    opacity: 0;
+  }
+}
+
+.bx-anim-zoom-out {
+  .animation(zoom-out 0.2s ease-out, forwards);
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabs</title>
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/highlightjs/styles/github.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/mm.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/browser.css" rel="stylesheet">
+  <link href="../../dist/css/base.css" rel="stylesheet">
+  <link href="../../dist/css/animate.css" rel="stylesheet">
+  <script src="http://g.tbcdn.cn/thx/brix-release/0.0.22/require+config.js"></script>
+</head>
+<body>
+<div class="desc">
+  <div class="animate-class">
+    <!-- <h4>移动缓动型Tabs：</h4> -->
+    <h5><strong>动画样式名</strong></h5>
+    <ul>
+      <li>从左向右滑过时：<code>.bx-trans-tabs-underline-forward</code></li>
+      <li>从右向左滑过时：<code>.bx-trans-tabs-underline-backward</code></li>
+    </ul>
+    <h5><strong>注意事项</strong></h5>
+    <ul>
+      <li>该动画只是提供了tab切换的缓动动画</li>
+      <li>需要tabs组件算出当前tab的左右距父容器的距离，当作下划线的left, right值</li>
+      <li>并且需要算出当前切换是向右滑还是向左滑了，来决定加哪个动效class</li>
+    </ul>
+  </div>
+</div>
+
+<div class="animate-content clearfix">
+  <!-- <h4>移动缓动型Tabs：</h4> -->
+  <ul class="tabs clearfix" style="float:left;">
+    <div class="tabs-underline"></div>
+    <li>标签选项1</li>
+    <li>标签选项2</li>
+    <li>标签3</li>
+    <li>超长超长超长的标签选项卡4</li>
+  </ul>
+</div>
+
+<!-- <div class="animate-content clearfix">
+  <h4>缩放缓动型Tabs：</h4>
+  <ul class="tabs clearfix" style="float:left;">
+    <div class="tabs-underline"></div>
+    <li>标签选项1</li>
+    <li>标签选项2</li>
+    <li>标签3</li>
+    <li>超长超长超长的标签选项卡4</li>
+  </ul>
+</div> -->
+
+<script>
+  require(['jquery'], function($) {
+
+    //init
+    var initIndex = 0 //初始化选中第一个
+    setUnderline($('.tabs li').eq(initIndex))
+    //算出当前tab距离左边及右边的距离 作为 underline的left, right值
+    function setUnderline(currentTab) {
+      var underline = $('.tabs-underline')
+      var left = currentTab.position().left
+      var right = currentTab.parent().outerWidth() - left - currentTab.outerWidth()
+
+      //如果点击的是下一个tab调用class:bx-trans-tabs-underline-forward，反之bx-trans-tabs-underline-backward
+      var lastTab = currentTab.siblings('li.on')
+      var lastTabIndex = lastTab.length ? lastTab.index() : 0
+      if (lastTabIndex < currentTab.index()) { // 前进
+        underline.removeClass('bx-trans-tabs-underline-backward')
+        underline.addClass('bx-trans-tabs-underline-forward')
+      } else { //后退
+        underline.removeClass('bx-trans-tabs-underline-forward')
+        underline.addClass('bx-trans-tabs-underline-backward')
+      }
+
+      currentTab.siblings('li').removeClass('on')
+      currentTab.addClass('on')
+
+      underline.css({
+        left: left,
+        right: right
+      })
+    }
+
+    //click event
+    $('.tabs li').on('click', function(e) {
+      var el = $(e.target)
+
+      //算出当前tab距离左边及右边的距离 作为 underline的left, right值
+      setUnderline(el)
+    })
+  })
+</script>
+</body>
+</html>

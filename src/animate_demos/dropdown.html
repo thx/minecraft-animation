@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dropdown</title>
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/highlightjs/styles/github.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/mm.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/browser.css" rel="stylesheet">
+  <link href="../../dist/css/base.css" rel="stylesheet">
+  <link href="../../dist/css/animate.css" rel="stylesheet">
+  <script src="http://g.tbcdn.cn/thx/brix-release/0.0.22/require+config.js"></script>
+</head>
+<body>
+<div class="desc">
+  <div class="animate-class">
+    <h5><strong>动画样式名</strong></h5>
+    <ul>
+      <li>渐显下拉：<code>.bx-anim-fade-in-down</code></li>
+      <li>渐隐上拉：<code>.bx-anim-fade-out-up</code></li>
+    </ul>
+
+    <h5><strong>注意事项</strong></h5>
+    <ul>
+      <li>key-frame动画不支持设置<code>display:none</code>, 需要<code>on('animationend')</code>时将相关元素隐藏</li>
+    </ul>
+  </div>
+</div>
+
+<div class="animate-content clearfix">
+  <div class="dropdown-wrap">
+    <input type="text" placeholder="click here" class="form-control" style="width:200px;">
+    <ul class="dropdown" style="display:none;">
+      <li>第一个选项</li>
+      <li>第二个选项</li>
+      <li>第三个选项</li>
+      <li>第四个选项</li>
+    </ul>
+  </div>
+
+  <div class="dropdown-wrap" style="margin-left:30px;">
+    <input type="text" placeholder="click here" class="form-control" style="width:200px;">
+    <ul class="dropdown" style="display:none;">
+      <li>第一个选项</li>
+      <li>第二个选项</li>
+      <li>第三个选项</li>
+      <li>第四个选项</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  require(['jquery'], function($) {
+    $('.form-control').on('click', function(e) {
+      //
+      $(e.target).next()
+      .show()
+      .removeClass('bx-anim-fade-out-up')
+      .removeClass('endhide')
+      .addClass('bx-anim-fade-in-down')
+    })
+
+    //
+    $('body').on('animationend', '.endhide', function(e) {
+      $(e.currentTarget).hide()
+      $(e.currentTarget).removeClass('endhide')
+    })
+
+    //
+    $(document).on('click', function(e) {
+      if (!$(e.target).closest('.dropdown-wrap').length) {
+        $('.dropdown')
+        .removeClass('bx-anim-fade-in-down')
+        .addClass('bx-anim-fade-out-up endhide')
+      }
+    })
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+/**
+ * 步骤条动画
+ */
+.bx-trans-steps-circle,
+.bx-trans-steps-text {
+  .transition(all 0.1s ease-out);
+  display: inline-block;
+}
+
+.bx-trans-steps-on {
+  .bx-trans-steps-circle {
+    .transform(scale(1.5));
+    .transform-origin(50%, 50%);
+    background-color: #FF9700;
+  }
+  .bx-trans-steps-text {
+    .transform(scale(1.5));
+    .transform-origin(-20%, 50%);
+  }
+}

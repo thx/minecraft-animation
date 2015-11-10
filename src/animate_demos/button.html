@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Button</title>
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/highlightjs/styles/github.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/mm.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/browser.css" rel="stylesheet">
+  <link href="../../dist/css/base.css" rel="stylesheet">
+  <link href="../../dist/css/animate.css" rel="stylesheet">
+  <script src="http://g.tbcdn.cn/thx/brix-release/0.0.22/require+config.js"></script>
+</head>
+<body>
+<div class="desc">
+  <div class="animate-class">
+    <h5><strong>动画样式名</strong></h5>
+    <ul>
+      <li>按钮圆角收缩动画：<code>.bx-trans-btn-radius</code></li>
+      <li>按钮文字收缩动画：<code>.bx-anim-btn-text</code></li>
+      <li>按钮反馈抖动动画：<code>.bx-anim-btn-shake</code></li>
+      <li>按钮三个点loading：<code>.bx-anim-btn-loading</code></li>
+      <li>按钮背景横条loading：<code>.bx-anim-btn-loading-bar</code></li>
+    </ul>
+  </div>
+</div>
+
+<div class="animate-content clearfix">
+  <a href="javascript:;" class="btn btn-brand mr10 bx-trans-btn-radius" style="width:60px;"><span>确定</span></a>
+  <a href="javascript:;" class="btn mr10 bx-trans-btn-radius" style="width:60px;"><span>确定</span></a>
+  <a href="javascript:;" class="btn btn-brand mr10 bx-trans-btn-radius" style="width:100px;"><span>确认提交按钮</span></a>
+  <a href="javascript:;" class="btn btn-brand bx-trans-btn-radius" style="width:100px;"><span data-progress="true">保存当前表单</span></a>
+
+  <div class="dialog">
+    Dialog here...
+  </div>
+
+</div>
+<div class="mask"></div>
+
+<script>
+  require(['jquery'], function($) {
+    $('.btn').on('click', function(e) {
+      $(this).find('span').addClass('bx-anim-btn-text endtext')
+    })
+
+    // endhide
+    // $('body').on('animationend', '.endborder', function(e) {
+    //   $(e.currentTarget).find('span').addClass('bx-anim-btn-text endtext')
+    //   $(e.currentTarget).removeClass('endborder')
+    // })
+
+    $('body').on('animationend', '.endtext', function(e) {
+      var current = $(e.currentTarget)
+
+      current
+        .attr('data-text', current.html())
+        .html('')
+        .addClass('bx-anim-btn-loading')
+
+      current.removeClass('endtext')
+
+      if (current.attr('data-progress')) {
+        //loading条
+        current.parent('a').addClass('bx-anim-btn-loading-bar')
+      } else {
+        //反馈抖动提示
+        setTimeout(function() {
+          current
+            .removeClass('bx-anim-btn-loading')
+            .parent('a').addClass('bx-anim-btn-shake endshake')
+
+          current.html('<i class="brixfont">&#xe61d;</i>')
+        }, 2000)
+      }
+
+    })
+
+    $('body').on('animationend', '.endshake', function(e) {
+      $(e.currentTarget)
+        .find('span')
+        .html($(e.currentTarget).find('span').attr('data-text'))
+      $(e.currentTarget).removeClass('endshake')
+    })
+
+
+  })
+</script>
+</body>
+</html>

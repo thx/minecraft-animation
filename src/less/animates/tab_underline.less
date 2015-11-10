@@ -1,0 +1,12 @@
+/**
+ * tabs切换下划线动画
+ */
+
+.bx-trans-tabs-underline-forward {
+  .transition(right 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), left 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0.09s;);
+  /* semicolon is necessary */
+}
+.bx-trans-tabs-underline-backward {
+  .transition(right 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0.09s, left 0.3s cubic-bezier(0.645, 0.045, 0.355, 1););
+  /* semicolon is necessary */
+}

@@ -1,0 +1,255 @@
+/**
+* 渐显下拉动画
+*/
+
+@keyframes fade-in-down {.fade-in-down-keyframes}
+@-webkit-keyframes fade-in-down {.fade-in-down-keyframes}
+@-moz-keyframes fade-in-down {.fade-in-down-keyframes}
+@-ms-keyframes fade-in-down {.fade-in-down-keyframes}
+@-o-keyframes fade-in-down {.fade-in-down-keyframes}
+
+.fade-in-down-keyframes () {
+  0% {
+    .transform(translate(0, -30%));
+    opacity: 0;
+  }
+  100% {
+    .transform(translate(0, 0));
+    opacity: 1;
+  }
+}
+
+.bx-anim-fade-in-down {
+  .animation(fade-in-down @duration ease-out, forwards);
+}
+
+/**
+* 渐隐上拉动画
+*/
+
+@keyframes fade-out-up {.fade-out-up-keyframes}
+@-webkit-keyframes fade-out-up {.fade-out-up-keyframes}
+@-moz-keyframes fade-out-up {.fade-out-up-keyframes}
+@-ms-keyframes fade-out-up {.fade-out-up-keyframes}
+@-o-keyframes fade-out-up {.fade-out-up-keyframes}
+
+.fade-out-up-keyframes () {
+  0% {
+    .transform(translate(0, 0));
+    opacity: 1;
+    /*display: none;*/
+  }
+
+  100% {
+    .transform(translate(0, -30%));
+    opacity: 0;
+    /*left: -9999px;*/
+    /*
+      animation属性里不支持display的变化
+      so无法使用上拉动画结束时停在最后一帧直接display:none;
+      还是需要js绑定node.on('animationend')事件去隐藏下拉框
+     */
+    /*display: block;*/
+  }
+}
+
+.bx-anim-fade-out-up {
+  .animation(fade-out-up @duration ease-out, forwards);
+}
+
+
+/**
+* 渐显上拉动画
+*/
+
+@keyframes fade-in-up {.fade-in-up-keyframes}
+@-webkit-keyframes fade-in-up {.fade-in-up-keyframes}
+@-moz-keyframes fade-in-up {.fade-in-up-keyframes}
+@-ms-keyframes fade-in-up {.fade-in-up-keyframes}
+@-o-keyframes fade-in-up {.fade-in-up-keyframes}
+
+.fade-in-up-keyframes () {
+  0% {
+    .transform(translate(0, 30%));
+    opacity: 0;
+  }
+  100% {
+    .transform(translate(0, 0));
+    opacity: 1;
+  }
+}
+
+.bx-anim-fade-in-up {
+  .animation(fade-in-up @duration ease-out, forwards);
+}
+
+/**
+* 渐隐下拉动画
+*/
+
+@keyframes fade-out-down {.fade-out-down-keyframes}
+@-webkit-keyframes fade-out-down {.fade-out-down-keyframes}
+@-moz-keyframes fade-out-down {.fade-out-down-keyframes}
+@-ms-keyframes fade-out-down {.fade-out-down-keyframes}
+@-o-keyframes fade-out-down {.fade-out-down-keyframes}
+
+.fade-out-down-keyframes () {
+  0% {
+    .transform(translate(0, 0));
+    opacity: 1;
+  }
+  100% {
+    .transform(translate(0, 30%));
+    opacity: 0;
+  }
+}
+
+.bx-anim-fade-out-down {
+  .animation(fade-out-down @duration ease-out, forwards);
+}
+
+/**
+* 渐显右拉动画
+*/
+
+@keyframes fade-in-right {.fade-in-right-keyframes}
+@-webkit-keyframes fade-in-right {.fade-in-right-keyframes}
+@-moz-keyframes fade-in-right {.fade-in-right-keyframes}
+@-ms-keyframes fade-in-right {.fade-in-right-keyframes}
+@-o-keyframes fade-in-right {.fade-in-right-keyframes}
+
+.fade-in-right-keyframes () {
+  0% {
+    .transform(translate(-30%, 0));
+    opacity: 0;
+  }
+  100% {
+    .transform(translate(0, 0));
+    opacity: 1;
+  }
+}
+
+.bx-anim-fade-in-right {
+  .animation(fade-in-right @duration ease-out, forwards);
+}
+
+/**
+ * 渐隐左拉动画
+ */
+
+@keyframes fade-out-left {.fade-out-left-keyframes}
+@-webkit-keyframes fade-out-left {.fade-out-left-keyframes}
+@-moz-keyframes fade-out-left {.fade-out-left-keyframes}
+@-ms-keyframes fade-out-left {.fade-out-left-keyframes}
+@-o-keyframes fade-out-left {.fade-out-left-keyframes}
+
+.fade-out-left-keyframes () {
+  0% {
+    .transform(translate(0, 0));
+    opacity: 1;
+  }
+  100% {
+    .transform(translate(-30%, 0));
+    opacity: 0;
+  }
+}
+
+.bx-anim-fade-out-left {
+  .animation(fade-out-left @duration ease-out, forwards);
+}
+
+/**
+* 渐显左拉动画
+*/
+
+@keyframes fade-in-left {.fade-in-left-keyframes}
+@-webkit-keyframes fade-in-left {.fade-in-left-keyframes}
+@-moz-keyframes fade-in-left {.fade-in-left-keyframes}
+@-ms-keyframes fade-in-left {.fade-in-left-keyframes}
+@-o-keyframes fade-in-left {.fade-in-left-keyframes}
+
+.fade-in-left-keyframes () {
+  0% {
+    .transform(translate(30%, 0));
+    opacity: 0;
+  }
+  100% {
+    .transform(translate(0, 0));
+    opacity: 1;
+  }
+}
+
+.bx-anim-fade-in-left {
+  .animation(fade-in-left @duration ease-out, forwards);
+}
+
+/**
+ * 渐隐右拉动画
+ */
+
+@keyframes fade-out-right {.fade-out-right-keyframes}
+@-webkit-keyframes fade-out-right {.fade-out-right-keyframes}
+@-moz-keyframes fade-out-right {.fade-out-right-keyframes}
+@-ms-keyframes fade-out-right {.fade-out-right-keyframes}
+@-o-keyframes fade-out-right {.fade-out-right-keyframes}
+
+.fade-out-right-keyframes () {
+  0% {
+    .transform(translate(0, 0));
+    opacity: 1;
+  }
+  100% {
+    .transform(translate(30%, 0));
+    opacity: 0;
+  }
+}
+
+.bx-anim-fade-out-right {
+  .animation(fade-out-right @duration ease-out, forwards);
+}
+
+/**
+ * 渐显动画 - fadein
+ */
+
+@keyframes fade-in {.fade-in-keyframes}
+@-webkit-keyframes fade-in {.fade-in-keyframes}
+@-moz-keyframes fade-in {.fade-in-keyframes}
+@-ms-keyframes fade-in {.fade-in-keyframes}
+@-o-keyframes fade-in {.fade-in-keyframes}
+
+.fade-in-keyframes () {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.bx-anim-fade-in {
+  .animation(fade-in @duration ease-out, forwards);
+}
+
+/**
+ * 渐隐动画 - fadeout
+ */
+
+@keyframes fade-out {.fade-out-keyframes}
+@-webkit-keyframes fade-out {.fade-out-keyframes}
+@-moz-keyframes fade-out {.fade-out-keyframes}
+@-ms-keyframes fade-out {.fade-out-keyframes}
+@-o-keyframes fade-out {.fade-out-keyframes}
+
+.fade-out-keyframes () {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.bx-anim-fade-out {
+  .animation(fade-out @duration ease-out, forwards);
+}

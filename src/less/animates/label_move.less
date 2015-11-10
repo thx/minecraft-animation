@@ -1,0 +1,45 @@
+/**
+ * 输入框label文案上移动画
+ */
+
+@keyframes btn-label-up {.btn-label-up-keyframes}
+@-webkit-keyframes btn-label-up {.btn-label-up-keyframes}
+@-moz-keyframes btn-label-up {.btn-label-up-keyframes}
+@-ms-keyframes btn-label-up {.btn-label-up-keyframes}
+@-o-keyframes btn-label-up {.btn-label-up-keyframes}
+
+.btn-label-up-keyframes () {
+  0% {
+    .transform(translate(0, 0))
+  }
+
+  100% {
+    .transform(translate(0, -200%))
+  }
+}
+.bx-anim-label-up {
+  .animation(btn-label-up @duration ease-out, forwards);
+}
+
+/**
+ * 输入框label文案下移动画
+ */
+
+@keyframes btn-label-down {.btn-label-down-keyframes}
+@-webkit-keyframes btn-label-down {.btn-label-down-keyframes}
+@-moz-keyframes btn-label-down {.btn-label-down-keyframes}
+@-ms-keyframes btn-label-down {.btn-label-down-keyframes}
+@-o-keyframes btn-label-down {.btn-label-down-keyframes}
+
+.btn-label-down-keyframes () {
+  0% {
+    .transform(translate(0, -200%))
+  }
+
+  100% {
+    .transform(translate(0, 0))
+  }
+}
+.bx-anim-label-down {
+  .animation(btn-label-down @duration ease-out, forwards);
+}

@@ -1,0 +1,28 @@
+@keyframes suspension {.suspension-keyframes}
+@-webkit-keyframes suspension {.suspension-keyframes}
+@-moz-keyframes suspension {.suspension-keyframes}
+@-ms-keyframes suspension {.suspension-keyframes}
+@-o-keyframes suspension {.suspension-keyframes}
+
+.suspension-keyframes () {
+  0% {
+    .transform(translate(0, 0))
+  }
+
+  25% {
+    .transform(translate(0, -15%))
+  }
+
+  75% {
+    .transform(translate(0, 15%))
+  }
+
+  100% {
+    .transform(translate(0, 0))
+  }
+}
+
+.bx-anim-suspension {
+  .animation(suspension 1.3s ease-out infinite, forwards);
+  display: inline-block;
+}

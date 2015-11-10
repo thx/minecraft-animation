@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabs</title>
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/highlightjs/styles/github.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/mm.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/browser.css" rel="stylesheet">
+  <link href="../../dist/css/base.css" rel="stylesheet">
+  <link href="../../dist/css/animate.css" rel="stylesheet">
+  <script src="http://g.tbcdn.cn/thx/brix-release/0.0.22/require+config.js"></script>
+</head>
+<body>
+<div class="desc">
+  <div class="animate-class">
+    <!-- <h4>移动缓动型Tabs：</h4> -->
+    <h5><strong>动画样式名</strong></h5>
+    <ul>
+      <li>步骤条索引：<code>.bx-trans-steps-circle</code></li>
+      <li>步骤条文字部分：<code>.bx-trans-steps-text</code></li>
+      <li>选中步骤的加上该class：<code>.bx-trans-steps-on</code></li>
+    </ul>
+    <h5><strong>注意事项</strong></h5>
+    <ul>
+      <li>在业务中手动触发调用当前步骤条加上<code>.bx-trans-steps-on</code>选中状态</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================================ -->
+
+<div class="animate-content clearfix">
+  <div class="steps clearfix">
+    <div class="steps-single bx-trans-steps-on"><i class="bx-trans-steps-circle steps-circle">1</i> <span class="bx-trans-steps-text steps-text">步骤一</span></div>
+    <div class="steps-single"><i class="bx-trans-steps-circle steps-circle">2</i> <span class="bx-trans-steps-text steps-text">步骤二</span></div>
+    <div class="steps-single"><i class="bx-trans-steps-circle steps-circle">3</i> <span class="bx-trans-steps-text steps-text">步骤三</span></div>
+  </div>
+  <div class="text-bar" style="width:200px;"></div>
+  <div class="text-bar" style="width:600px;"></div>
+  <div class="text-bar" style="width:600px;margin-bottom:40px;"></div>
+  <div>
+    <a href="javascript:;" class="btn btn-brand mr10" id="next">下一步</a>
+    <a href="javascript:;" class="btn" id="prev">返回上一步</a>
+  </div>
+</div>
+
+<script>
+  require(['jquery'], function($) {
+    var stepsClass= 'bx-trans-steps-on'
+
+    $('#next').on('click', function(e) {
+      var cur = $('.' + stepsClass)
+      cur.next().addClass(stepsClass)
+      cur.removeClass(stepsClass)
+    })
+
+    $('#prev').on('click', function(e) {
+      var cur = $('.' + stepsClass)
+      cur.prev().addClass(stepsClass)
+      cur.removeClass(stepsClass)
+    })
+
+  })
+</script>
+</body>
+</html>

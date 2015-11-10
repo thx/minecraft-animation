@@ -1,0 +1,45 @@
+/**
+ * popover左下 初始隐藏状态
+ * 注意使用opacity控制popover的显示和隐藏，不要设置display: none
+ */
+.bx-trans-zoom-left-bottom {
+  opacity: 0;
+  .transition(all .15s);
+  .transform(scale(0));
+  .transform-origin(0, 0);
+}
+/**
+ * popover右下
+ */
+.bx-trans-zoom-right-bottom {
+  opacity: 0;
+  .transition(all .15s);
+  .transform(scale(0));
+  .transform-origin(100%, 0);
+}
+/**
+ * popover左上
+ */
+.bx-trans-zoom-left-top {
+  opacity: 0;
+  .transition(all .15s);
+  .transform(scale(0));
+  .transform-origin(0, 100%);
+}
+/**
+ * popover右上
+ */
+.bx-trans-zoom-right-top {
+  opacity: 0;
+  .transition(all .15s);
+  .transform(scale(0));
+  .transform-origin(100%, 100%);
+}
+
+/**
+ * popover显示
+ */
+.bx-trans-zoom {
+  opacity: 1;
+  .transform(scale(1));
+}

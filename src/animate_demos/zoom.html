@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zoom</title>
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/highlightjs/styles/github.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/mm.css" rel="stylesheet">
+  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/browser.css" rel="stylesheet">
+  <link href="../../dist/css/base.css" rel="stylesheet">
+  <link href="../../dist/css/animate.css" rel="stylesheet">
+  <script src="http://g.tbcdn.cn/thx/brix-release/0.0.22/require+config.js"></script>
+</head>
+<body>
+<div class="desc">
+  <div class="animate-class">
+    <!-- <h4>移动缓动型Tabs：</h4> -->
+    <h5><strong>动画样式名</strong></h5>
+    <ul>
+      <li>zoomIn：<code>.bx-anim-zoom-in</code></li>
+      <li>zoomOut：<code>.bx-anim-zoom-out</code></li>
+    </ul>
+  </div>
+</div>
+
+<div class="animate-content clearfix">
+  <a href="javascript:;" class="btn zoomIn">zoomIn</a>
+  <a href="javascript:;" class="btn zoomOut">zoomOut</a>
+</div>
+
+<div class="zoom-box">ZOOM</div>
+
+<script>
+  require(['jquery'], function($) {
+    $('.zoomIn').on('click', function(e) {
+      $('.zoom-box').addClass('bx-anim-zoom-in')
+    })
+    $('.zoomOut').on('click', function(e) {
+      $('.zoom-box').addClass('bx-anim-zoom-out')
+    })
+
+    $('.zoom-box').on('animationend', function() {
+      $('.zoom-box')
+        .removeClass('bx-anim-zoom-in')
+        .removeClass('bx-anim-zoom-out')
+    })
+  })
+</script>
+</body>
+</html>
