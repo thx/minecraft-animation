@@ -1,3 +1,5 @@
 src/less/*.css
 npm-debug.log
 node_modules
+.thumbnail
+.DS_Store
