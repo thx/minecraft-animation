@@ -105,6 +105,7 @@ body {
 }
 .animate-content label {
   margin-right: 30px;
+  padding: 0;
 }
 .animate-class {
   padding-bottom: 10px;
