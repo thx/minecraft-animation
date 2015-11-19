@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Button</title>
-  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/highlightjs/styles/github.css" rel="stylesheet">
-  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/mm.css" rel="stylesheet">
-  <link href="http://g.tbcdn.cn/thx/brix-release/0.0.22/brix-components/css-tool/browser.css" rel="stylesheet">
+  <script src="http://g.tbcdn.cn/thx/brix-release/0.1.0/require-config-css-animation-debug.js"></script>
   <link href="../../dist/css/base.css" rel="stylesheet">
   <link href="../../dist/css/animate.css" rel="stylesheet">
-  <script src="http://g.tbcdn.cn/thx/brix-release/0.0.22/require+config.js"></script>
-  <script src="http://g.alicdn.com/thx/brix-animation/20151118.155220.699/js/animation-min.js"></script>
+  <script type="text/javascript">
+      require.config({
+          paths: {
+              'brix/animation': 'http://g.alicdn.com/thx/brix-animation/20151119.143932.762/js/animation-min'
+          }
+      })
+  </script>
 </head>
 <body>
 <div class="desc">
@@ -29,8 +31,8 @@
 <div class="animate-content clearfix">
   <a href="javascript:;" class="btn btn-brand mr10 bx-trans-btn-radius" style="width:60px;"><span>确定</span></a>
   <a href="javascript:;" class="btn mr10 bx-trans-btn-radius" style="width:60px;"><span>确定</span></a>
-  <a href="javascript:;" class="btn btn-brand mr10 bx-trans-btn-radius" style="width:100px;"><span>确认提交按钮</span></a>
-  <a href="javascript:;" class="btn btn-brand bx-trans-btn-radius" style="width:100px;"><span data-progress="true">保存当前表单</span></a>
+  <a href="javascript:;" class="btn btn-brand mr10 bx-trans-btn-radius" style="width:120px;"><span>确认提交按钮</span></a>
+  <a href="javascript:;" class="btn btn-brand bx-trans-btn-radius" style="width:120px;"><span data-progress="true">保存当前表单</span></a>
 
   <div class="dialog">
     Dialog here...
@@ -38,6 +40,18 @@
 
 </div>
 <div class="mask"></div>
+
+<script>
+  require([
+    'brix/animation'
+  ], function(Anim) {
+    var options = {} //配置
+    var anim = new Anim(options)
+
+    anim.boot() //启动
+  })
+</script>
+
 
 <script>
   require(['jquery'], function($) {

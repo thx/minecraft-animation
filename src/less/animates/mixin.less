@@ -110,3 +110,26 @@
   -moz-transform-origin: @X @Y;   /* Firefox */
   -o-transform-origin: @X @Y;   /* Opera */
 }
+
+/*
+动画默认是播放一次，加这个class可以无限播放
+ */
+.bx-anim-infinite {
+  animation-iteration-count: infinite!important;
+  -ms-animation-iteration-count: infinite!important;
+  -webkit-animation-iteration-count: infinite!important;
+  -moz-animation-iteration-count: infinite!important;
+  -o-animation-iteration-count: infinite!important;
+}
+
+
+/*
+动画默认播放完停在最后一帧，加这个class表示动画结束会停在第一帧
+ */
+.bx-anim-fill-mode-backwards {
+  animation-fill-mode: backwards!important;
+  -ms-animation-fill-mode: backwards!important;
+  -webkit-animation-fill-mode: backwards!important;
+  -moz-animation-fill-mode: backwards!important;
+  -o-animation-fill-mode: backwards!important;
+}
