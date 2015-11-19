@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dropdown</title>
+  <title>dropmenu</title>
   <script src="http://g.tbcdn.cn/thx/brix-release/0.1.0/require-config-css-animation-debug.js"></script>
   <link href="../../dist/css/base.css" rel="stylesheet">
   <link href="../../dist/css/animate.css" rel="stylesheet">
@@ -24,9 +24,9 @@
 </div>
 
 <div class="animate-content clearfix">
-  <div class="dropdown-wrap">
+  <div class="dropmenu-wrap">
     <input type="text" placeholder="click here" class="form-control" style="width:200px;">
-    <ul class="dropdown" style="display:none;">
+    <ul class="dropmenu" style="display:none;">
       <li>第一个选项</li>
       <li>第二个选项</li>
       <li>第三个选项</li>
@@ -34,9 +34,9 @@
     </ul>
   </div>
 
-  <div class="dropdown-wrap" style="margin-left:30px;">
+  <div class="dropmenu-wrap" style="margin-left:30px;">
     <input type="text" placeholder="click here" class="form-control" style="width:200px;">
-    <ul class="dropdown" style="display:none;">
+    <ul class="dropmenu" style="display:none;">
       <li>第一个选项</li>
       <li>第二个选项</li>
       <li>第三个选项</li>
@@ -64,8 +64,8 @@
 
     //
     $(document).on('click', function(e) {
-      if (!$(e.target).closest('.dropdown-wrap').length) {
-        $('.dropdown')
+      if (!$(e.target).closest('.dropmenu-wrap').length) {
+        $('.dropmenu')
         .removeClass('bx-anim-fade-in-down')
         .addClass('bx-anim-fade-out-up endhide')
       }
