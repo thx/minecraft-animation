@@ -940,7 +940,7 @@
     -o-transform: scale(1);
   }
 }
-.bx-anim-input[type="checkbox"] {
+.bx-anim-checkbox {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -970,10 +970,10 @@
   overflow: hidden;
   /* ie hack */
 }
-.bx-anim-input[type="checkbox"]:checked {
+.bx-anim-checkbox:checked {
   border: none;
 }
-.bx-anim-input[type="checkbox"]:checked:after {
+.bx-anim-checkbox:checked:after {
   color: white;
   content: '';
   border-radius: 3px;
@@ -1000,10 +1000,10 @@
   -webkit-animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
 }
-.bx-anim-input[type="checkbox"]:hover {
+.bx-anim-checkbox:hover {
   border-color: #999;
 }
-.bx-anim-input[type="checkbox"]:focus {
+.bx-anim-checkbox:focus {
   outline: none;
 }
 /**
@@ -1134,7 +1134,7 @@
     opacity: 1;
   }
 }
-.bx-anim-input[type="radio"] {
+.bx-anim-radio {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1164,7 +1164,7 @@
   overflow: hidden;
   /* ie hack */
 }
-.bx-anim-input[type="radio"]:checked:after {
+.bx-anim-radio:checked:after {
   content: '';
   border-radius: 100%;
   background-color: #FF4C00;
@@ -1190,10 +1190,10 @@
   -webkit-animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
 }
-.bx-anim-input[type="radio"]:hover {
+.bx-anim-radio:hover {
   border-color: #999;
 }
-.bx-anim-input[type="radio"]:focus {
+.bx-anim-radio:focus {
   outline: none;
   border-color: #ccc;
 }
