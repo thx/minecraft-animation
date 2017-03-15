@@ -8,13 +8,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt": "",
-    "magix-app-deploy": "",
-    "gulp": "^3.9.0",
-    "gulp-less": "",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^3.3.0",
     "gulp-minify-css": "^0.3.13",
-    "gulp-rename": "^1.2.2",
-    "gulp-concat": ""
+    "gulp-rename": "^1.2.2"
   },
   "peerDependencies": {},
   "keywords": [
