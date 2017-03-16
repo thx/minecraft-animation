@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Dialog</title>
-  <script src="http://g.tbcdn.cn/thx/brix-release/0.1.5/require-config-css-debug.js"></script>
+  <script src="https://g.alicdn.com/thx/brix-release/1.0.0-beta.1/require-config-css-debug.js"></script>
   <link href="../../dist/css/base.css" rel="stylesheet">
   <link href="../../dist/css/animate.css" rel="stylesheet">
 </head>
@@ -25,72 +25,63 @@
 </div>
 
 <div class="animate-content clearfix">
-  <a href="javascript:;" class="btn btn-brand mr10" data-fade-in="bx-anim-fade-in-down" data-fade-out="bx-anim-fade-out-up">上滑进浮层</a>
-  <a href="javascript:;" class="btn btn-brand mr10" data-fade-in="bx-anim-fade-in-up" data-fade-out="bx-anim-fade-out-down">下滑进浮层</a>
+  <a href="javascript:;" class="btn btn-brand mr10" bx-animation="
+    on: click;
+    call: showMask,showDialog;
+  ">上滑进浮层</a>
+ <!--  <a href="javascript:;" class="btn btn-brand mr10" data-fade-in="bx-anim-fade-in-up" data-fade-out="bx-anim-fade-out-down">下滑进浮层</a>
 
   <a href="javascript:;" class="btn btn-brand mr10" data-fade-in="bx-anim-fade-in-right" data-fade-out="bx-anim-fade-out-left">左滑进浮层</a>
 
   <a href="javascript:;" class="btn btn-brand" data-fade-in="bx-anim-fade-in-left" data-fade-out="bx-anim-fade-out-right">右滑进浮层</a>
-
-  <div class="dialog">
+ -->
+  <div class="dialog" style="
+    width: 600px;
+    height: 400px;
+    top: 100px;
+    left: 50%;
+    margin-left: -300px;
+  " bx-animation="
+    when: showDialog;
+    style: display block,3;
+    class: bx-anim-fade-in-down;
+    when: hideDialog;
+    class: bx-anim-fade-out-up;
+    style: display none,3;
+  ">
     Dialog here...
   </div>
 
 </div>
-<div class="mask"></div>
+<div class="mask" bx-animation="
+  when: showMask;
+  style: display block,3;
+  class: bx-anim-fade-in;
+  on: click;
+  call: hideDialog;
+  class: bx-anim-fade-out;
+  style: display none,3;
+"></div>
+
 
 <script>
-  require(['jquery'], function($) {
-    $('.btn').on('click', function(e) {
-      //mask - in
-      $('.mask').show()
-        .addClass('bx-anim-fade-in')
-        .removeClass('bx-anim-fade-out')
 
-      //dialog - in
-      var left = ($('body').width() - $('.dialog').outerWidth()) / 2
-      var fadein = $(this).attr('data-fade-in')
-      var fadeout = $(this).attr('data-fade-out')
-      $('.mask').attr('data-fade-in', fadein)
-      $('.mask').attr('data-fade-out', fadeout)
-      $('.dialog').attr('data-fade-in', fadein)
-      $('.dialog').attr('data-fade-out', fadeout)
+  require.config({
+    paths: {
+      'brix/animation': 'http://g.alicdn.com/thx/brix-animation/20170316.185044.408/animation-debug',
+      // 'brix/animation': './animate',
+    }
+  })
 
-      $('.dialog').show()
-        .css({
-          left: left,
-          top: 100
-        })
-        .removeClass(fadeout)
-        .addClass(fadein)
+  require([
+    'jquery',
+    'brix/animation'
+  ], function($, Anim) {
+
+    new Anim({
+      el: $('body')
     })
 
-    // endhide
-    $('body').on('animationend', '.endhide', function(e) {
-      var fadein = $(this).attr('data-fade-in')
-      var fadeout = $(this).attr('data-fade-out')
-      $(e.currentTarget).hide()
-      $(e.currentTarget)
-        .removeClass('endhide')
-        .removeClass(fadein)
-        .removeClass(fadeout)
-    })
-
-
-    $('.mask').on('click', function(e) {
-      var fadein = $(this).attr('data-fade-in')
-      var fadeout = $(this).attr('data-fade-out')
-
-      // mask - out
-      $('.mask')
-        .addClass('bx-anim-fade-out endhide')
-        .removeClass('bx-anim-fade-in')
-
-
-      $('.dialog')
-        .addClass(fadeout + ' endhide')
-        .removeClass(fadein)
-    })
   })
 </script>
 </body>

@@ -1291,11 +1291,11 @@
   }
 }
 .bx-anim-fade-in-down {
-  animation: fade-in-down 0.2s ease-out;
-  -ms-animation: fade-in-down 0.2s ease-out;
-  -moz-animation: fade-in-down 0.2s ease-out;
-  -webkit-animation: fade-in-down 0.2s ease-out;
-  -o-animation: fade-in-down 0.2s ease-out;
+  animation: fade-in-down 0.25s ease-out;
+  -ms-animation: fade-in-down 0.25s ease-out;
+  -moz-animation: fade-in-down 0.25s ease-out;
+  -webkit-animation: fade-in-down 0.25s ease-out;
+  -o-animation: fade-in-down 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -1439,11 +1439,11 @@
   }
 }
 .bx-anim-fade-out-up {
-  animation: fade-out-up 0.2s ease-out;
-  -ms-animation: fade-out-up 0.2s ease-out;
-  -moz-animation: fade-out-up 0.2s ease-out;
-  -webkit-animation: fade-out-up 0.2s ease-out;
-  -o-animation: fade-out-up 0.2s ease-out;
+  animation: fade-out-up 0.25s ease-out;
+  -ms-animation: fade-out-up 0.25s ease-out;
+  -moz-animation: fade-out-up 0.25s ease-out;
+  -webkit-animation: fade-out-up 0.25s ease-out;
+  -o-animation: fade-out-up 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -1547,11 +1547,11 @@
   }
 }
 .bx-anim-fade-in-up {
-  animation: fade-in-up 0.2s ease-out;
-  -ms-animation: fade-in-up 0.2s ease-out;
-  -moz-animation: fade-in-up 0.2s ease-out;
-  -webkit-animation: fade-in-up 0.2s ease-out;
-  -o-animation: fade-in-up 0.2s ease-out;
+  animation: fade-in-up 0.25s ease-out;
+  -ms-animation: fade-in-up 0.25s ease-out;
+  -moz-animation: fade-in-up 0.25s ease-out;
+  -webkit-animation: fade-in-up 0.25s ease-out;
+  -o-animation: fade-in-up 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -1655,11 +1655,11 @@
   }
 }
 .bx-anim-fade-out-down {
-  animation: fade-out-down 0.2s ease-out;
-  -ms-animation: fade-out-down 0.2s ease-out;
-  -moz-animation: fade-out-down 0.2s ease-out;
-  -webkit-animation: fade-out-down 0.2s ease-out;
-  -o-animation: fade-out-down 0.2s ease-out;
+  animation: fade-out-down 0.25s ease-out;
+  -ms-animation: fade-out-down 0.25s ease-out;
+  -moz-animation: fade-out-down 0.25s ease-out;
+  -webkit-animation: fade-out-down 0.25s ease-out;
+  -o-animation: fade-out-down 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -1763,11 +1763,11 @@
   }
 }
 .bx-anim-fade-in-right {
-  animation: fade-in-right 0.2s ease-out;
-  -ms-animation: fade-in-right 0.2s ease-out;
-  -moz-animation: fade-in-right 0.2s ease-out;
-  -webkit-animation: fade-in-right 0.2s ease-out;
-  -o-animation: fade-in-right 0.2s ease-out;
+  animation: fade-in-right 0.25s ease-out;
+  -ms-animation: fade-in-right 0.25s ease-out;
+  -moz-animation: fade-in-right 0.25s ease-out;
+  -webkit-animation: fade-in-right 0.25s ease-out;
+  -o-animation: fade-in-right 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -1871,11 +1871,11 @@
   }
 }
 .bx-anim-fade-out-left {
-  animation: fade-out-left 0.2s ease-out;
-  -ms-animation: fade-out-left 0.2s ease-out;
-  -moz-animation: fade-out-left 0.2s ease-out;
-  -webkit-animation: fade-out-left 0.2s ease-out;
-  -o-animation: fade-out-left 0.2s ease-out;
+  animation: fade-out-left 0.25s ease-out;
+  -ms-animation: fade-out-left 0.25s ease-out;
+  -moz-animation: fade-out-left 0.25s ease-out;
+  -webkit-animation: fade-out-left 0.25s ease-out;
+  -o-animation: fade-out-left 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -1979,11 +1979,11 @@
   }
 }
 .bx-anim-fade-in-left {
-  animation: fade-in-left 0.2s ease-out;
-  -ms-animation: fade-in-left 0.2s ease-out;
-  -moz-animation: fade-in-left 0.2s ease-out;
-  -webkit-animation: fade-in-left 0.2s ease-out;
-  -o-animation: fade-in-left 0.2s ease-out;
+  animation: fade-in-left 0.25s ease-out;
+  -ms-animation: fade-in-left 0.25s ease-out;
+  -moz-animation: fade-in-left 0.25s ease-out;
+  -webkit-animation: fade-in-left 0.25s ease-out;
+  -o-animation: fade-in-left 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -2087,11 +2087,11 @@
   }
 }
 .bx-anim-fade-out-right {
-  animation: fade-out-right 0.2s ease-out;
-  -ms-animation: fade-out-right 0.2s ease-out;
-  -moz-animation: fade-out-right 0.2s ease-out;
-  -webkit-animation: fade-out-right 0.2s ease-out;
-  -o-animation: fade-out-right 0.2s ease-out;
+  animation: fade-out-right 0.25s ease-out;
+  -ms-animation: fade-out-right 0.25s ease-out;
+  -moz-animation: fade-out-right 0.25s ease-out;
+  -webkit-animation: fade-out-right 0.25s ease-out;
+  -o-animation: fade-out-right 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -2145,11 +2145,11 @@
   }
 }
 .bx-anim-fade-in {
-  animation: fade-in 0.2s ease-out;
-  -ms-animation: fade-in 0.2s ease-out;
-  -moz-animation: fade-in 0.2s ease-out;
-  -webkit-animation: fade-in 0.2s ease-out;
-  -o-animation: fade-in 0.2s ease-out;
+  animation: fade-in 0.25s ease-out;
+  -ms-animation: fade-in 0.25s ease-out;
+  -moz-animation: fade-in 0.25s ease-out;
+  -webkit-animation: fade-in 0.25s ease-out;
+  -o-animation: fade-in 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -2203,11 +2203,11 @@
   }
 }
 .bx-anim-fade-out {
-  animation: fade-out 0.2s ease-out;
-  -ms-animation: fade-out 0.2s ease-out;
-  -moz-animation: fade-out 0.2s ease-out;
-  -webkit-animation: fade-out 0.2s ease-out;
-  -o-animation: fade-out 0.2s ease-out;
+  animation: fade-out 0.25s ease-out;
+  -ms-animation: fade-out 0.25s ease-out;
+  -moz-animation: fade-out 0.25s ease-out;
+  -webkit-animation: fade-out 0.25s ease-out;
+  -o-animation: fade-out 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -2301,11 +2301,11 @@
   }
 }
 .bx-anim-label-up {
-  animation: btn-label-up 0.2s ease-out;
-  -ms-animation: btn-label-up 0.2s ease-out;
-  -moz-animation: btn-label-up 0.2s ease-out;
-  -webkit-animation: btn-label-up 0.2s ease-out;
-  -o-animation: btn-label-up 0.2s ease-out;
+  animation: btn-label-up 0.25s ease-out;
+  -ms-animation: btn-label-up 0.25s ease-out;
+  -moz-animation: btn-label-up 0.25s ease-out;
+  -webkit-animation: btn-label-up 0.25s ease-out;
+  -o-animation: btn-label-up 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */
@@ -2399,11 +2399,11 @@
   }
 }
 .bx-anim-label-down {
-  animation: btn-label-down 0.2s ease-out;
-  -ms-animation: btn-label-down 0.2s ease-out;
-  -moz-animation: btn-label-down 0.2s ease-out;
-  -webkit-animation: btn-label-down 0.2s ease-out;
-  -o-animation: btn-label-down 0.2s ease-out;
+  animation: btn-label-down 0.25s ease-out;
+  -ms-animation: btn-label-down 0.25s ease-out;
+  -moz-animation: btn-label-down 0.25s ease-out;
+  -webkit-animation: btn-label-down 0.25s ease-out;
+  -o-animation: btn-label-down 0.25s ease-out;
   /*
   动画结束停在最后一帧
    */

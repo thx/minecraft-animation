@@ -3,16 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Button</title>
-  <script src="http://g.tbcdn.cn/thx/brix-release/0.1.5/require-config-css-debug.js"></script>
+  <script src="https://g.alicdn.com/thx/brix-release/1.0.0-beta.1/require-config-css-debug.js"></script>
   <link href="../../dist/css/base.css" rel="stylesheet">
   <link href="../../dist/css/animate.css" rel="stylesheet">
-  <script type="text/javascript">
-      require.config({
-          paths: {
-              'brix/animation': 'http://g.alicdn.com/thx/brix-animation/20151119.143932.762/js/animation-min'
-          }
-      })
-  </script>
 </head>
 <body>
 <div class="desc">
@@ -29,76 +22,145 @@
 </div>
 
 <div class="animate-content clearfix">
-  <a href="javascript:;" class="btn btn-brand mr10 bx-trans-btn-radius" style="width:60px;"><span>确定</span></a>
-  <a href="javascript:;" class="btn mr10 bx-trans-btn-radius" style="width:60px;"><span>确定</span></a>
-  <a href="javascript:;" class="btn btn-brand mr10 bx-trans-btn-radius" style="width:120px;"><span>确认提交按钮</span></a>
-  <a href="javascript:;" class="btn btn-brand bx-trans-btn-radius" style="width:120px;"><span data-progress="true">保存当前表单</span></a>
+  <a href="javascript:;" class="btn btn-brand mr10 bx-trans-btn-radius" bx-animation="
+    on: click;
+    call: loading;
+    when: shakeBtn;
+    class: bx-anim-btn-shake;
+  " style="width:60px;">
+    <span bx-animation="
+      when: loading;
+      class: bx-anim-btn-text;
+      execute: clearText;
+      class: bx-anim-btn-loading,3;
+      wait: 2000;
+      removeClass: bx-anim-btn-loading,3;
+      call: shakeBtn;
+      execute: setTipsText;
+      class: bx-anim-btn-shake;
+      execute: setText;
+    ">确定</span>
+  </a>
+  <!-- <a href="javascript:;" class="btn mr10 bx-trans-btn-radius" style="width:60px;"><span>确定</span></a> -->
+  <!-- <a href="javascript:;" class="btn btn-brand mr10 bx-trans-btn-radius" style="width:120px;"><span>确认提交按钮</span></a> -->
+  <a href="javascript:;" class="btn btn-brand bx-trans-btn-radius" style="width:120px;" bx-animation="
+    on: click;
+    class: bx-anim-btn-loading-bar,3;
+    call: loading2;
+    when: shakeBtn2;
+    class: bx-anim-btn-shake;
+    removeClass: bx-anim-btn-loading-bar;
+  ">
+    <span bx-animation="
+      when: loading2;
+      class: bx-anim-btn-text;
+      execute: clearText;
+      class: bx-anim-btn-loading,3;
+      wait: 2000;
+      removeClass: bx-anim-btn-loading,3;
+      call: shakeBtn2;
+      execute: setTipsText;
+      class: bx-anim-btn-shake;
+      execute: setText;
 
-  <div class="dialog">
-    Dialog here...
-  </div>
+    ">保存当前表单</span>
+  </a>
+
 
 </div>
-<div class="mask"></div>
+
+<div class="desc">
+    <div class="animate-class">
+      <h5>源码：</h5>
+    </div>
+    <xmp>
+      <a href="javascript:;" class="btn btn-brand bx-trans-btn-radius" style="width:120px;" bx-animation="
+        on: click;
+        class: bx-anim-btn-loading-bar,3;
+        call: loading2;
+        when: shakeBtn2;
+        class: bx-anim-btn-shake;
+        removeClass: bx-anim-btn-loading-bar;
+      ">
+        <span bx-animation="
+          when: loading2;
+          class: bx-anim-btn-text;
+          execute: clearText;
+          class: bx-anim-btn-loading,3;
+          wait: 2000;
+          removeClass: bx-anim-btn-loading,3;
+          call: shakeBtn2;
+          execute: setTipsText;
+          class: bx-anim-btn-shake;
+          execute: setText;
+        ">保存当前表单</span>
+      </a>
+    </xmp>
+  </div>
+
 
 <script>
-  require([
-    'brix/animation'
-  ], function(Anim) {
-    var options = {} //配置
-    var anim = new Anim(options)
-
-    anim.boot() //启动
+  require.config({
+    paths: {
+      'brix/animation': 'http://g.alicdn.com/thx/brix-animation/20170316.185044.408/animation-debug',
+    }
   })
-</script>
 
+  require(['jquery', 'brix/animation'], function($, Anim) {
 
-<script>
-  require(['jquery'], function($) {
-    $('.btn').on('click', function(e) {
-      $(this).find('span').addClass('bx-anim-btn-text endtext')
+    new Anim({
+      el: $('body'),
+      owner: {
+        clearText: function(e) {
+          e.node.attr('data-text', e.node.html())
+          e.node.html('')
+        },
+        setTipsText: function(e) {
+          e.node.html('<i class="brixfont">&#xe61d;</i>')
+        },
+        setText: function(e) {
+          e.node.html(e.node.attr('data-text'))
+        }
+      }
     })
 
-    // endhide
-    // $('body').on('animationend', '.endborder', function(e) {
-    //   $(e.currentTarget).find('span').addClass('bx-anim-btn-text endtext')
-    //   $(e.currentTarget).removeClass('endborder')
+    // return
+    // $('.btn').on('click', function(e) {
+    //   $(this).find('span').addClass('bx-anim-btn-text endtext')
     // })
 
-    $('body').on('animationend', '.endtext', function(e) {
-      var current = $(e.currentTarget)
+    // $('body').on('animationend', '.endtext', function(e) {
+    //   var current = $(e.currentTarget)
 
-      current
-        .attr('data-text', current.html())
-        .html('')
-        .addClass('bx-anim-btn-loading')
+    //   current
+    //     .attr('data-text', current.html())
+    //     .html('')
+    //     .addClass('bx-anim-btn-loading')
 
-      current.removeClass('endtext')
+    //   current.removeClass('endtext')
 
-      if (current.attr('data-progress')) {
-        //loading条
-        current.parent('a').addClass('bx-anim-btn-loading-bar')
-      } else {
-        //反馈抖动提示
-        setTimeout(function() {
-          current
-            .removeClass('bx-anim-btn-loading')
-            .parent('a').addClass('bx-anim-btn-shake endshake')
+    //   if (current.attr('data-progress')) {
+    //     //loading条
+    //     current.parent('a').addClass('bx-anim-btn-loading-bar')
+    //   } else {
+    //     //反馈抖动提示
+    //     setTimeout(function() {
+    //       current
+    //         .removeClass('bx-anim-btn-loading')
+    //         .parent('a').addClass('bx-anim-btn-shake endshake')
 
-          current.html('<i class="brixfont">&#xe61d;</i>')
-        }, 2000)
-      }
+    //       current.html('<i class="brixfont">&#xe61d;</i>')
+    //     }, 2000)
+    //   }
 
-    })
+    // })
 
-    $('body').on('animationend', '.endshake', function(e) {
-      $(e.currentTarget)
-        .find('span')
-        .html($(e.currentTarget).find('span').attr('data-text'))
-      $(e.currentTarget).removeClass('endshake')
-    })
-
-
+    // $('body').on('animationend', '.endshake', function(e) {
+    //   $(e.currentTarget)
+    //     .find('span')
+    //     .html($(e.currentTarget).find('span').attr('data-text'))
+    //   $(e.currentTarget).removeClass('endshake')
+    // })
   })
 </script>
 </body>
