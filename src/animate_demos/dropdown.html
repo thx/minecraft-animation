@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>dropmenu</title>
-  <script src="http://g.tbcdn.cn/thx/brix-release/0.1.0/require-config-css-animation-debug.js"></script>
+  <script src="https://g.alicdn.com/thx/brix-release/1.0.0-beta.1/require-config-css-debug.js"></script>
   <link href="../../dist/css/base.css" rel="stylesheet">
   <link href="../../dist/css/animate.css" rel="stylesheet">
 </head>
@@ -25,18 +25,21 @@
 
 <div class="animate-content clearfix">
   <div class="dropmenu-wrap">
-    <input type="text" placeholder="click here" class="form-control" style="width:200px;">
-    <ul class="dropmenu" style="display:none;">
-      <li>第一个选项</li>
-      <li>第二个选项</li>
-      <li>第三个选项</li>
-      <li>第四个选项</li>
-    </ul>
-  </div>
-
-  <div class="dropmenu-wrap" style="margin-left:30px;">
-    <input type="text" placeholder="click here" class="form-control" style="width:200px;">
-    <ul class="dropmenu" style="display:none;">
+    <input type="text" bx-animation="
+      on: click;
+      call: resetClass;
+      call: showDropMenu;
+    " placeholder="click here" class="form-control" style="width:200px;">
+    <ul class="dropmenu" bx-animation="
+      when: resetClass;
+      removeClass: bx-anim-fade-out-up,3;
+      when: showDropMenu;
+      style: display block,3;
+      class: bx-anim-fade-in-down;
+      on: click;
+      class: bx-anim-fade-out-up,2;
+      style: display none,3;
+    " style="display:none;">
       <li>第一个选项</li>
       <li>第二个选项</li>
       <li>第三个选项</li>
@@ -45,31 +48,75 @@
   </div>
 </div>
 
+  <div class="desc">
+    <div class="animate-class">
+      <h5>源码：</h5>
+    </div>
+    <xmp>
+      <div class="dropmenu-wrap">
+        <input type="text" bx-animation="
+          on: click;
+          call: resetClass;
+          call: showDropMenu;
+        " placeholder="click here" class="form-control" style="width:200px;">
+        <ul class="dropmenu" bx-animation="
+          when: resetClass;
+          removeClass: bx-anim-fade-out-up,3;
+          when: showDropMenu;
+          style: display block,3;
+          class: bx-anim-fade-in-down;
+          on: click;
+          class: bx-anim-fade-out-up,2;
+          style: display none,3;
+        " style="display:none;">
+          <li>第一个选项</li>
+          <li>第二个选项</li>
+          <li>第三个选项</li>
+          <li>第四个选项</li>
+        </ul>
+      </div>
+    </xmp>
+  </div>
+
 <script>
-  require(['jquery'], function($) {
-    $('.form-control').on('click', function(e) {
-      //
-      $(e.target).next()
-      .show()
-      .removeClass('bx-anim-fade-out-up')
-      .removeClass('endhide')
-      .addClass('bx-anim-fade-in-down')
+  require.config({
+    paths: {
+      'brix/animation': 'http://g.alicdn.com/thx/brix-animation/20170316.185044.408/animation-debug'
+    }
+  })
+  // http://g.alicdn.com/thx/brix-animation/20170315.151921.087/animation-debug
+
+  require([
+    'jquery',
+    'brix/animation'
+  ], function($, Anim) {
+    var anim = new Anim({
+      el: $('body')
     })
 
-    //
-    $('body').on('animationend', '.endhide', function(e) {
-      $(e.currentTarget).hide()
-      $(e.currentTarget).removeClass('endhide')
-    })
+    // $('.form-control').on('click', function(e) {
+    //   //
+    //   $(e.target).next()
+    //   .show()
+    //   .removeClass('bx-anim-fade-out-up')
+    //   .removeClass('endhide')
+    //   .addClass('bx-anim-fade-in-down')
+    // })
 
-    //
-    $(document).on('click', function(e) {
-      if (!$(e.target).closest('.dropmenu-wrap').length) {
-        $('.dropmenu')
-        .removeClass('bx-anim-fade-in-down')
-        .addClass('bx-anim-fade-out-up endhide')
-      }
-    })
+    // //
+    // $('body').on('animationend', '.endhide', function(e) {
+    //   $(e.currentTarget).hide()
+    //   $(e.currentTarget).removeClass('endhide')
+    // })
+
+    // //
+    // $(document).on('click', function(e) {
+    //   if (!$(e.target).closest('.dropmenu-wrap').length) {
+    //     $('.dropmenu')
+    //     .removeClass('bx-anim-fade-in-down')
+    //     .addClass('bx-anim-fade-out-up endhide')
+    //   }
+    // })
   })
 </script>
 </body>
