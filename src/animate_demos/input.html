@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Input</title>
-  <script src="http://g.tbcdn.cn/thx/brix-release/0.1.0/require-config-css-animation-debug.js"></script>
+  <script src="https://g.alicdn.com/thx/brix-release/1.0.0-beta.1/require-config-css-debug.js"></script>
   <link href="../../dist/css/base.css" rel="stylesheet">
   <link href="../../dist/css/animate.css" rel="stylesheet">
 </head>
@@ -23,58 +23,160 @@
 <div class="animate-content clearfix">
   <div class="dropmenu-wrap">
    <label for=""> 普通输入提示 </label>
-    <input type="text" placeholder="input here" class="form-control" style="width:300px;">
-    <div class="input-tips" style="display:none;color:#999;">这里显示的是提示信息</div>
+    <input type="text" bx-animation="
+      on: input;
+      call: showTips;
+      on: focusout;
+      call: hideTips;
+    " placeholder="input here" class="form-control" style="width:300px;">
+    <div class="input-tips" bx-animation="
+      when: showTips;
+      style: display block,3;
+      class: bx-anim-fade-in-right;
+      when: hideTips;
+      class: bx-anim-fade-out-left;
+      style: display none,3;
+    " style="display:none;color:#999;">这里显示的是提示信息</div>
   </div>
 </div>
 
 <div class="animate-content clearfix">
   <div class="dropmenu-wrap">
    <label for=""> 错误输入提示 </label>
-    <input type="text" placeholder="input here" class="form-control" style="width:300px;">
-    <div class="input-tips" style="display:none; color:#B10F0F;">这里显示的错误信息</div>
+    <input type="text" bx-animation="
+      on: input;
+      call: showErrorTips;
+    " placeholder="input here" class="form-control" style="width:300px;">
+    <div class="input-tips" bx-animation="
+      when: showErrorTips;
+      style: display block,3;
+      class: bx-anim-fade-in-right;
+    " style="display:none; color:#B10F0F;">这里显示的错误信息</div>
   </div>
 </div>
 
 <div class="animate-content clearfix">
   <div class="dropmenu-wrap">
-    <label for="" class="lb">请输入姓名</label>
-    <input type="text"  class="form-input" style="width:300px;">
+    <label for="" class="lb" bx-animation="
+      when: upPlaceholder;
+      class: bx-anim-label-up,2;
+      when: downPlaceholder;
+      removeClass: bx-anim-label-up,3;
+      class: bx-anim-label-down;
+    ">请输入姓名</label>
+    <input type="text" bx-animation="
+      on: focusin;
+      call: upPlaceholder;
+      on: focusout;
+      call: downPlaceholder;
+    "  class="form-input" style="width:300px;">
   </div>
 </div>
+
+
+<div class="desc">
+  <div class="animate-class">
+    <h5>源码：</h5>
+  </div>
+  <xmp><div class="animate-content clearfix">
+  <div class="dropmenu-wrap">
+   <label for=""> 普通输入提示 </label>
+    <input type="text" bx-animation="
+      on: input;
+      call: showTips;
+      on: focusout;
+      call: hideTips;
+    " placeholder="input here" class="form-control" style="width:300px;">
+    <div class="input-tips" bx-animation="
+      when: showTips;
+      style: display block,3;
+      class: bx-anim-fade-in-right;
+      when: hideTips;
+      class: bx-anim-fade-out-left;
+      style: display none,3;
+    " style="display:none;color:#999;">这里显示的是提示信息</div>
+  </div>
+</div>
+
+<div class="animate-content clearfix">
+  <div class="dropmenu-wrap">
+   <label for=""> 错误输入提示 </label>
+    <input type="text" bx-animation="
+      on: input;
+      call: showErrorTips;
+    " placeholder="input here" class="form-control" style="width:300px;">
+    <div class="input-tips" bx-animation="
+      when: showErrorTips;
+      style: display block,3;
+      class: bx-anim-fade-in-right;
+    " style="display:none; color:#B10F0F;">这里显示的错误信息</div>
+  </div>
+</div>
+
+  <div class="animate-content clearfix">
+    <div class="dropmenu-wrap">
+      <label for="" class="lb" bx-animation="
+        when: upPlaceholder;
+        class: bx-anim-label-up,2;
+        when: downPlaceholder;
+        removeClass: bx-anim-label-up,3;
+        class: bx-anim-label-down;
+      ">请输入姓名</label>
+      <input type="text" bx-animation="
+        on: focusin;
+        call: upPlaceholder;
+        on: focusout;
+        call: downPlaceholder;
+      "  class="form-input" style="width:300px;">
+    </div>
+  </div>
+  </xmp>
+</div>
+
+
 <script>
-  require(['jquery'], function($) {
-    $('.form-control').on('keyup', function(e) {
-      $(e.target).next()
-      .show()
-      .removeClass('bx-anim-fade-out-left')
-      .removeClass('endhide')
-      .addClass('bx-anim-fade-in-right')
+  require.config({
+    paths: {
+      'brix/animation': 'http://g.alicdn.com/thx/brix-animation/20170317.160834.080/animation-debug'
+    }
+  })
+  require(['jquery', 'brix/animation'], function($, Anim) {
+
+    var anim = new Anim({
+      el: $('body')
     })
 
-    $('.form-control').on('blur', function(e) {
-      $(e.target).next()
-      // .show()
-      .removeClass('bx-anim-fade-in-right')
-      .addClass('endhide')
-      .addClass('bx-anim-fade-out-left')
-    })
+    // $('.form-control').on('keyup', function(e) {
+    //   $(e.target).next()
+    //   .show()
+    //   .removeClass('bx-anim-fade-out-left')
+    //   .removeClass('endhide')
+    //   .addClass('bx-anim-fade-in-right')
+    // })
 
-    //
-    $('body').on('animationend', '.endhide', function(e) {
-      $(e.currentTarget).hide()
-      $(e.currentTarget).removeClass('endhide')
-    })
+    // $('.form-control').on('blur', function(e) {
+    //   $(e.target).next()
+    //   // .show()
+    //   .removeClass('bx-anim-fade-in-right')
+    //   .addClass('endhide')
+    //   .addClass('bx-anim-fade-out-left')
+    // })
 
-    $('.form-input').on('focus', function(e) {
-      $(this).prev('label').addClass('bx-anim-label-up')
-      $(this).prev('label').removeClass('bx-anim-label-down')
-    })
+    // //
+    // $('body').on('animationend', '.endhide', function(e) {
+    //   $(e.currentTarget).hide()
+    //   $(e.currentTarget).removeClass('endhide')
+    // })
 
-    $('.form-input').on('blur', function(e) {
-      $(this).prev('label').addClass('bx-anim-label-down')
-      $(this).prev('label').removeClass('bx-anim-label-up')
-    })
+    // $('.form-input').on('focus', function(e) {
+    //   $(this).prev('label').addClass('bx-anim-label-up')
+    //   $(this).prev('label').removeClass('bx-anim-label-down')
+    // })
+
+    // $('.form-input').on('blur', function(e) {
+    //   $(this).prev('label').addClass('bx-anim-label-down')
+    //   $(this).prev('label').removeClass('bx-anim-label-up')
+    // })
 
 
   })
