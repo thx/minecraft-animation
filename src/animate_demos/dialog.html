@@ -29,12 +29,12 @@
     on: click;
     call: showMask,showDialog;
   ">上滑进浮层</a>
- <!--  <a href="javascript:;" class="btn btn-brand mr10" data-fade-in="bx-anim-fade-in-up" data-fade-out="bx-anim-fade-out-down">下滑进浮层</a>
+  <!-- <a href="javascript:;" class="btn btn-brand mr10" data-fade-in="bx-anim-fade-in-up" data-fade-out="bx-anim-fade-out-down">下滑进浮层</a>
 
   <a href="javascript:;" class="btn btn-brand mr10" data-fade-in="bx-anim-fade-in-right" data-fade-out="bx-anim-fade-out-left">左滑进浮层</a>
 
-  <a href="javascript:;" class="btn btn-brand" data-fade-in="bx-anim-fade-in-left" data-fade-out="bx-anim-fade-out-right">右滑进浮层</a>
- -->
+  <a href="javascript:;" class="btn btn-brand" data-fade-in="bx-anim-fade-in-left" data-fade-out="bx-anim-fade-out-right">右滑进浮层</a> -->
+
   <div class="dialog" style="
     width: 600px;
     height: 400px;
@@ -64,11 +64,52 @@
 "></div>
 
 
+<div class="desc">
+    <div class="animate-class">
+      <h5>源码：</h5>
+    </div>
+    <xmp>
+<div class="animate-content clearfix">
+  <a href="javascript:;" class="btn btn-brand mr10" bx-animation="
+    on: click;
+    call: showMask,showDialog;
+  ">上滑进浮层</a>
+  <div class="dialog" style="
+    width: 600px;
+    height: 400px;
+    top: 100px;
+    left: 50%;
+    margin-left: -300px;
+  " bx-animation="
+    when: showDialog;
+    style: display block,3;
+    class: bx-anim-fade-in-down;
+    when: hideDialog;
+    class: bx-anim-fade-out-up;
+    style: display none,3;
+  ">
+    Dialog here...
+  </div>
+
+</div>
+<div class="mask" bx-animation="
+  when: showMask;
+  style: display block,3;
+  class: bx-anim-fade-in;
+  on: click;
+  call: hideDialog;
+  class: bx-anim-fade-out;
+  style: display none,3;
+"></div>
+    </xmp>
+  </div>
+
+
 <script>
 
   require.config({
     paths: {
-      'brix/animation': 'http://g.alicdn.com/thx/brix-animation/20170316.185044.408/animation-debug',
+      'brix/animation': 'http://g.alicdn.com/thx/brix-animation/20170317.160834.080/animation-debug',
       // 'brix/animation': './animate',
     }
   })
