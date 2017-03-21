@@ -322,14 +322,15 @@ body {
   left: 50%;
 }
 .zoom-box {
-  position: absolute;
+  /*position: absolute;*/
   line-height: 200px;
   color: white;
   text-align: center;
   font-size: 30px;
   width: 400px;
   height: 200px;
-  left: 300px;
+  margin: 50px auto;
+  /*left: 300px;*/
   background-color: #3B945F;
   border-radius: 7px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);

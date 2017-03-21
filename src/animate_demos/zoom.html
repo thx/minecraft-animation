@@ -25,10 +25,34 @@
 </div>
 
 <div class="zoom-box" bx-animation="
-when: zoomIn;
-class: bx-anim-zoom-in;
-when: zoomOut;
-class: bx-anim-zoom-out;">ZOOM</div>
+  when: zoomIn;
+  class: bx-anim-zoom-in;
+  when: zoomOut;
+  class: bx-anim-zoom-out;">
+  ZOOM
+</div>
+
+
+<div class="desc">
+  <div class="animate-class">
+    <h5>源码：</h5>
+  </div>
+  <xmp>
+    <div class="animate-content clearfix">
+      <a href="javascript:;" class="btn" bx-animation="on: click; call: zoomIn;">zoomIn</a>
+      <a href="javascript:;" class="btn" bx-animation="on: click; call: zoomOut;">zoomOut</a>
+    </div>
+
+    <div class="zoom-box" bx-animation="
+      when: zoomIn;
+      class: bx-anim-zoom-in;
+      when: zoomOut;
+      class: bx-anim-zoom-out;">
+      ZOOM
+    </div>
+  </xmp>
+</div>
+
 
 <script>
   require.config({
@@ -41,18 +65,6 @@ class: bx-anim-zoom-out;">ZOOM</div>
     var anim = new Anim({
       el: $('body')
     })
-    // $('.zoomIn').on('click', function(e) {
-    //   $('.zoom-box').addClass('bx-anim-zoom-in')
-    // })
-    // $('.zoomOut').on('click', function(e) {
-    //   $('.zoom-box').addClass('bx-anim-zoom-out')
-    // })
-
-    // $('.zoom-box').on('animationend', function() {
-    //   $('.zoom-box')
-    //     .removeClass('bx-anim-zoom-in')
-    //     .removeClass('bx-anim-zoom-out')
-    // })
   })
 </script>
 </body>
