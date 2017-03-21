@@ -38,32 +38,6 @@
   <label for="rd4"><input type="radio" class="bx-anim-input" name="radio" id="rd4"> 选项4</label>
 </div>
 
-<script>
-  require(['jquery'], function($) {
-    $('.form-control').on('click', function(e) {
-      //
-      $(e.target).next()
-      .show()
-      .removeClass('bx-anim-fade-out-up')
-      .removeClass('endhide')
-      .addClass('bx-anim-fade-in-down')
-    })
 
-    //
-    $('body').on('animationend', '.endhide', function(e) {
-      $(e.currentTarget).hide()
-      $(e.currentTarget).removeClass('endhide')
-    })
-
-    //
-    $(document).on('click', function(e) {
-      if (!$(e.target).closest('.dropdown-wrap').length) {
-        $('.dropdown')
-        .removeClass('bx-anim-fade-in-down')
-        .addClass('bx-anim-fade-out-up endhide')
-      }
-    })
-  })
-</script>
 </body>
 </html>

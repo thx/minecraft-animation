@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Zoom</title>
-  <script src="http://g.tbcdn.cn/thx/brix-release/0.1.5/require-config-css-debug.js"></script>
+  <script src="https://g.alicdn.com/thx/brix-release/1.0.0-beta.1/require-config-css-debug.js"></script>
   <link href="../../dist/css/base.css" rel="stylesheet">
   <link href="../../dist/css/animate.css" rel="stylesheet">
 </head>
@@ -20,26 +20,39 @@
 </div>
 
 <div class="animate-content clearfix">
-  <a href="javascript:;" class="btn zoomIn">zoomIn</a>
-  <a href="javascript:;" class="btn zoomOut">zoomOut</a>
+  <a href="javascript:;" class="btn" bx-animation="on: click; call: zoomIn;">zoomIn</a>
+  <a href="javascript:;" class="btn" bx-animation="on: click; call: zoomOut;">zoomOut</a>
 </div>
 
-<div class="zoom-box">ZOOM</div>
+<div class="zoom-box" bx-animation="
+when: zoomIn;
+class: bx-anim-zoom-in;
+when: zoomOut;
+class: bx-anim-zoom-out;">ZOOM</div>
 
 <script>
-  require(['jquery'], function($) {
-    $('.zoomIn').on('click', function(e) {
-      $('.zoom-box').addClass('bx-anim-zoom-in')
-    })
-    $('.zoomOut').on('click', function(e) {
-      $('.zoom-box').addClass('bx-anim-zoom-out')
-    })
+  require.config({
+    paths: {
+      'brix/animation': 'http://g.alicdn.com/thx/brix-animation/20170317.160834.080/animation-debug'
+    }
+  })
 
-    $('.zoom-box').on('animationend', function() {
-      $('.zoom-box')
-        .removeClass('bx-anim-zoom-in')
-        .removeClass('bx-anim-zoom-out')
+  require(['jquery', 'brix/animation'], function($, Anim) {
+    var anim = new Anim({
+      el: $('body')
     })
+    // $('.zoomIn').on('click', function(e) {
+    //   $('.zoom-box').addClass('bx-anim-zoom-in')
+    // })
+    // $('.zoomOut').on('click', function(e) {
+    //   $('.zoom-box').addClass('bx-anim-zoom-out')
+    // })
+
+    // $('.zoom-box').on('animationend', function() {
+    //   $('.zoom-box')
+    //     .removeClass('bx-anim-zoom-in')
+    //     .removeClass('bx-anim-zoom-out')
+    // })
   })
 </script>
 </body>
