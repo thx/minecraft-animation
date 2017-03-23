@@ -111,7 +111,17 @@
 </div>
 
 <script>
-  require(['jquery'], function($) {
+  require.config({
+    paths: {
+      'brix/animation': 'http://g.alicdn.com/thx/brix-animation/20170317.160834.080/animation-debug'
+    }
+  })
+
+  require(['jquery', 'brix/animation'], function($, Anim) {
+    // new Anim({
+    //   el: $('body')
+    // })
+    
     $('.pop-btn').on('click', function(e) {
       $(e.target).siblings('.popover-inner')
         .toggleClass('bx-trans-zoom')
